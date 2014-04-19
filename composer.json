@@ -1,0 +1,37 @@
+{
+  "name": "frenzelgmbh/golfteamplanner",
+  "description": "Golf Team Planner Module for yii2",
+  "keywords": [
+    "yii2",
+    "golf team planner",
+    "frenzel gmbh"
+  ],
+  "type": "yii2-extension",
+  "license": "MIT",
+  "support": {
+    "issues": "https://github.com/frenzelgmbh/golfteamplanner/issues?state=open",
+    "source": "https://github.com/frenzelgmbh/golfteamplanner"
+  },
+  "authors": [
+    {
+      "name": "Philipp Frenzel",
+      "email": "philipp@frenzel.net",
+      "homepage": "http://frenzel.net"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "yiisoft/yii2": "*"
+  },
+  "require-dev": {
+    "yiisoft/yii2-codeception": "*",
+    "codeception/specify": "*",
+    "codeception/verify": "*",
+    "guzzlehttp/guzzle": "~4.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "frenzelgmbh\\teamgolfplanner\\": ""
+        }
+    }
+}
