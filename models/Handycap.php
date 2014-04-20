@@ -25,6 +25,15 @@ class Handycap extends \yii\db\ActiveRecord
     }
 
     /**
+    * will include the custom scopes for this model
+    * @return object enhanced query object
+    */
+    public static function find()
+    {
+        return new HandycapQuery(get_called_class());
+    }
+
+    /**
      * @inheritdoc
      */
     public function rules()
@@ -60,6 +69,7 @@ class Handycap extends \yii\db\ActiveRecord
         {             
             if($insert)
             {
+                self::archiveOther($this->user_id);
                 $this->time_create=time();
             }
             return true;               
@@ -67,7 +77,20 @@ class Handycap extends \yii\db\ActiveRecord
         return false;
     }
 
+    /**
+     * get user returns the latest related user object containing all attributes
+     * @return object user
+     */
     public function getUser() {
         return $this->hasOne(\Yii::$app->get('user')->className(), array('id' => 'user_id'));
+    }
+
+    private static function archiveOther($user_id = NULL)
+    {
+        if(!is_null($user_id))
+        {
+            Handycap::updateAll(['status'=>'archived'],'status <> "archived" AND user_id = '.$user_id);
+        }
+        return true;
     }
 }
