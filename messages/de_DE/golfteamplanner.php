@@ -29,4 +29,11 @@ return [
    'Deleted at' => 'entfernt am',
    //Handycap
    'Hcp' 	  => 'Handycap',
+   'Handycaps' => 'Handycaps',
+   'Handycap Overview' => 'Übersicht Handycaps',
+   'New Handycap' => 'neues Handycap',
+   //Events
+   'Events' => 'Termine',
+   //Players
+   'Manage Players' => 'Spieler verwalten'
 ];

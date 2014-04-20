@@ -1,4 +1,4 @@
-<?php $this->beginContent('@app/views/layouts/'.\Yii::$app->getModule("golfteamplanner")->mainLayout); ?>
+<?php $this->beginContent('@app/views/layouts/'.\Yii::$app->getModule("golfteamplanner")->mainLayout.'.php'); ?>
 <nav class="navbar-default navbar-static-side" role="navigation">
   <div class="sidebar-collapse">          
       <?= $this->blocks['sidebar']; ?>

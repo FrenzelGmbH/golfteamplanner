@@ -1,7 +1,8 @@
 <?php
 
+use yii\helpers\Url;
 use yii\helpers\Html;
-use yii\grid\GridView;
+use kartik\grid\GridView;
 
 /**
  * @var yii\web\View $this
@@ -9,28 +10,25 @@ use yii\grid\GridView;
  * @var frenzelgmbh\golfteamplanner\models\TeameventSearch $searchModel
  */
 
-$this->title = Yii::t('app', 'Teamevents');
+$this->title = Yii::t('golfteamplanner', 'Manage Team-Events');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="teamevent-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+<?php yii\widgets\Block::begin(array('id'=>'sidebar')); ?>
 
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <?= $this->render('/default/sidemenu', []) ?>
 
-    <p>
-        <?= Html::a(Yii::t('app', 'Create {modelClass}', [
-  'modelClass' => 'Teamevent',
-]), ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+<?php yii\widgets\Block::end(); ?>
+
+<div class="workbench">
+
+    <h1 class="page-header"><?= Html::encode($this->title) ?></h1>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
             'name',
             'time_start',
             'time_end',
@@ -41,6 +39,13 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'time_create:datetime',
 
             ['class' => 'yii\grid\ActionColumn'],
+        ],
+        'panel' => [
+            'heading'=>'<h3 class="panel-title"><i class="glyphicon glyphicon-globe"></i> Event Overview</h3>',
+            'type'=>'info',
+            'before'=>Html::a('<i class="glyphicon glyphicon-plus"></i> Create', ['create'], ['class' => 'btn btn-success']),
+            'after'=>Html::a('<i class="glyphicon glyphicon-repeat"></i> Reset Grid', ['index'], ['class' => 'btn btn-info']),
+            'showFooter'=>false
         ],
     ]); ?>
 

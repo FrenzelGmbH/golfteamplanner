@@ -14,6 +14,25 @@ use yii\filters\VerbFilter;
  */
 class TeameventController extends Controller
 {
+      /**
+       * [init description]
+       * @return [type] [description]
+       */
+      public function init()
+      {
+        parent::init();
+
+        if (isset($_POST['_lang']))
+        {
+            Yii::$app->language = $_POST['_lang'];
+            Yii::$app->session['_lang'] = Yii::$app->language;
+        }
+        else if (isset(Yii::$app->session['_lang']))
+        {
+            Yii::$app->language = Yii::$app->session['_lang'];
+        } 
+      }
+
     /**
      * Setting the default layout to 2 columns
      * @var string layout to be used within this controller
