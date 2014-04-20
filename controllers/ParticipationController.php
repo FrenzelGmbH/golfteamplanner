@@ -15,6 +15,12 @@ use yii\filters\VerbFilter;
 class ParticipationController extends Controller
 {
     /**
+     * Setting the default layout to 2 columns
+     * @var string layout to be used within this controller
+     */
+    public $layout = 'column2';
+
+    /**
      * Get view path based on module property
      * @return string
      */
@@ -42,8 +48,6 @@ class ParticipationController extends Controller
      */
     public function actionIndex()
     {
-        $this->layout = \Yii::$app->getModule("golfteamplanner")->mainLayout;
-
         $searchModel = new ParticipationSearch;
         $dataProvider = $searchModel->search(Yii::$app->request->getQueryParams());
 
@@ -60,8 +64,6 @@ class ParticipationController extends Controller
      */
     public function actionView($id)
     {
-        $this->layout = \Yii::$app->getModule("golfteamplanner")->mainLayout;
-
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
@@ -74,8 +76,6 @@ class ParticipationController extends Controller
      */
     public function actionCreate()
     {
-        $this->layout = \Yii::$app->getModule("golfteamplanner")->mainLayout;
-
         $model = new Participation;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -95,8 +95,6 @@ class ParticipationController extends Controller
      */
     public function actionUpdate($id)
     {
-        $this->layout = \Yii::$app->getModule("golfteamplanner")->mainLayout;
-
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {

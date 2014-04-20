@@ -19,9 +19,9 @@ class Module extends BaseModule {
     public $viewPath;
 
     /**
-     * @var string|null main layout that should be used
+     * @var string|null main layout that should be used by default we set it to /main
      */
-    public $mainLayout;
+    public $mainLayout = '/main';
 
     /**
      * @inheritdoc
@@ -31,13 +31,11 @@ class Module extends BaseModule {
         parent::init();
         
         \Yii::setAlias('@golfteamplanner', dirname(__FILE__));
-        /*\Yii::$app->i18n->translations['usr'] = [
+        \Yii::$app->i18n->translations['golfteamplanner'] = [
             'class' => 'yii\i18n\PhpMessageSource',
             'sourceLanguage' => 'en-US',
-            'basePath' => '@usr/messages',
+            'basePath' => '@golfteamplanner/messages',
         ];
-        if (\Yii::$app->mail !== null)
-            \Yii::$app->mail->viewPath = '@usr/views/emails';*/
     }
 
 }

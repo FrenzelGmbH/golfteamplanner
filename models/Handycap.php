@@ -30,6 +30,7 @@ class Handycap extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['hcp','user_id'],'required'],
             [['user_id', 'time_deleted', 'time_create'], 'integer'],
             [['hcp'], 'number'],
             [['status'], 'string', 'max' => 255]
@@ -46,8 +47,8 @@ class Handycap extends \yii\db\ActiveRecord
             'user_id' => Yii::t('app', 'User ID'),
             'hcp' => Yii::t('app', 'Hcp'),
             'status' => Yii::t('app', 'Status'),
-            'time_deleted' => Yii::t('app', 'Time Deleted'),
-            'time_create' => Yii::t('app', 'Time Create'),
+            'time_deleted' => Yii::t('app', 'Deleted at'),
+            'time_create' => Yii::t('app', 'Create at'),
         ];
     }
 }

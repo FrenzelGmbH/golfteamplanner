@@ -12,7 +12,13 @@ use yii\widgets\ActiveForm;
  * Default controller for User module
  */
 class DefaultController extends Controller 
-{ 
+{
+    /**
+     * Setting the default layout to 2 columns
+     * @var string layout to be used within this controller
+     */
+    public $layout = 'column2';
+    
     /**
      * Get view path based on module property
      * @return string
@@ -46,7 +52,6 @@ class DefaultController extends Controller
      */
     public function actionIndex() 
     {
-      $this->layout = \Yii::$app->getModule("golfteamplanner")->mainLayout;
       return $this->render('index',[]);
     }
 
