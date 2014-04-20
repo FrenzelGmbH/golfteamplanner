@@ -13,7 +13,14 @@ $this->title = Yii::t('app', 'Create {modelClass}', [
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Handycaps'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="handycap-create">
+
+<?php yii\widgets\Block::begin(array('id'=>'sidebar')); ?>
+
+    <?= $this->render('/default/sidemenu', []) ?>
+
+<?php yii\widgets\Block::end(); ?>
+
+<div class="workbench">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
