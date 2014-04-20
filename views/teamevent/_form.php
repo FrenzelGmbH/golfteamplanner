@@ -1,9 +1,12 @@
 <?php
 
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
+use kartik\widgets\ActiveForm;
+
+use app\modules\workflow\models\Workflow;
 
 /**
+ * @TODO as the workflow is currently only available in the project, this needs to be singulized
  * @var yii\web\View $this
  * @var frenzelgmbh\golfteamplanner\models\Teamevent $model
  * @var yii\widgets\ActiveForm $form
@@ -14,21 +17,43 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'time_start')->textInput() ?>
+    <div class="row">
+        <div class="col-md-8">
+            <?= $form->field($model, 'name')->textInput(['maxlength' => 255]) ?>
+        </div>
+        <div class="col-md-4">
+            <?= $form->field($model,'status')->dropDownList(Workflow::getStatusOptions()); ?>
+        </div>
+    </div>
 
-    <?= $form->field($model, 'time_end')->textInput() ?>
-
-    <?= $form->field($model, 'date_start')->textInput() ?>
-
-    <?= $form->field($model, 'date_end')->textInput() ?>
-
-    <?= $form->field($model, 'time_deleted')->textInput() ?>
-
-    <?= $form->field($model, 'time_create')->textInput() ?>
-
-    <?= $form->field($model, 'name')->textInput(['maxlength' => 255]) ?>
-
-    <?= $form->field($model, 'status')->textInput(['maxlength' => 255]) ?>
+    <div class="row">
+        <div class="col-md-6">
+            <?= $form->field($model, 'date_start')->widget(DatePicker::classname(), [
+                    'options' => ['placeholder' => Yii::t('golfteamplanner','Enter start date ...')],
+                    'pluginOptions' => [
+                        'autoclose'=>true
+                    ]
+                ]); 
+            ?>
+        </div>
+        <div class="col-md-6">
+            <?= $form->field($model, 'time_start')->textInput() ?>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <?= $form->field($model, 'date_end')->widget(DatePicker::classname(), [
+                    'options' => ['placeholder' => Yii::t('golfteamplanner','Enter end date ...(optional)')],
+                    'pluginOptions' => [
+                        'autoclose'=>true
+                    ]
+                ]); 
+            ?>
+        </div>
+        <div class="col-md-6">
+            <?= $form->field($model, 'time_end')->textInput() ?>
+        </div>
+    </div>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

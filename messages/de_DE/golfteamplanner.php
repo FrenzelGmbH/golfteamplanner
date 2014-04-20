@@ -34,6 +34,7 @@ return [
    'New Handycap' => 'neues Handycap',
    //Events
    'Events' => 'Termine',
+   
    //Players
    'Manage Players' => 'Spieler verwalten'
 ];
