@@ -21,7 +21,7 @@ class Handycap extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'tbl_handycap';
+        return '{{%handycap}}';
     }
 
     /**
@@ -50,5 +50,24 @@ class Handycap extends \yii\db\ActiveRecord
             'time_deleted' => Yii::t('app', 'Deleted at'),
             'time_create' => Yii::t('app', 'Create at'),
         ];
+    }
+
+    /**
+    * before we save the record
+    */
+    public function beforeSave($insert){
+        if (parent::beforeSave($insert)) 
+        {             
+            if($insert)
+            {
+                $this->time_create=time();
+            }
+            return true;               
+        }
+        return false;
+    }
+
+    public function getUser() {
+        return $this->hasOne(\Yii::$app->get('user')::className(), array('id' => 'user_id'));
     }
 }

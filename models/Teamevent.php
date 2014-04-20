@@ -26,7 +26,7 @@ class Teamevent extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'tbl_teamevent';
+        return '{{%teamevent}}';
     }
 
     /**
@@ -65,5 +65,20 @@ class Teamevent extends \yii\db\ActiveRecord
     public function getParticipations()
     {
         return $this->hasMany(Participation::className(), ['teamevent_id' => 'id']);
+    }
+
+    /**
+    * before we save the record
+    */
+    public function beforeSave($insert){
+        if (parent::beforeSave($insert)) 
+        {             
+            if($insert)
+            {
+                $this->time_create=time();
+            }
+            return true;               
+        }
+        return false;
     }
 }
