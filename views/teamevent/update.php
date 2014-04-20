@@ -14,6 +14,13 @@ $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Teamevents'), 'url' 
 $this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = Yii::t('app', 'Update');
 ?>
+
+<?php yii\widgets\Block::begin(array('id'=>'sidebar')); ?>
+
+    <?= $this->render('/default/sidemenu', []) ?>
+
+<?php yii\widgets\Block::end(); ?>
+
 <div class="workbench">
 
     <h1><?= Html::encode($this->title) ?></h1>
