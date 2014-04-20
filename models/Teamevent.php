@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\golfteamplanner\golfteamplanner\models;
+namespace frenzelgmbh\golfteamplanner\models;
 
 use Yii;
 

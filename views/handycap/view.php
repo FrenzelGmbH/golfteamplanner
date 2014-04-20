@@ -5,7 +5,7 @@ use yii\widgets\DetailView;
 
 /**
  * @var yii\web\View $this
- * @var app\modules\golfteamplanner\golfteamplanner\models\Handycap $model
+ * @var frenzelgmbh\golfteamplanner\models\Handycap $model
  */
 
 $this->title = $model->id;

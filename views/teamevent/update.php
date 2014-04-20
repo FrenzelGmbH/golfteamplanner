@@ -4,7 +4,7 @@ use yii\helpers\Html;
 
 /**
  * @var yii\web\View $this
- * @var app\modules\golfteamplanner\golfteamplanner\models\Teamevent $model
+ * @var frenzelgmbh\golfteamplanner\models\Teamevent $model
  */
 
 $this->title = Yii::t('app', 'Update {modelClass}: ', [

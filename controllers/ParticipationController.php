@@ -1,10 +1,10 @@
 <?php
 
-namespace app\modules\golfteamplanner\controllers;
+namespace frenzelgmbh\golfteamplanner\controllers;
 
 use Yii;
-use app\modules\golfteamplanner\golfteamplanner\models\Participation;
-use app\modules\golfteamplanner\golfteamplanner\models\ParticipationSearch;
+use frenzelgmbh\golfteamplanner\models\Participation;
+use frenzelgmbh\golfteamplanner\models\ParticipationSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;

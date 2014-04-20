@@ -5,7 +5,7 @@ use yii\widgets\ActiveForm;
 
 /**
  * @var yii\web\View $this
- * @var app\modules\golfteamplanner\golfteamplanner\models\TeameventSearch $model
+ * @var frenzelgmbh\golfteamplanner\models\TeameventSearch $model
  * @var yii\widgets\ActiveForm $form
  */
 ?>

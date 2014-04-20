@@ -1,10 +1,10 @@
 <?php
 
-namespace app\modules\golfteamplanner\controllers;
+namespace frenzelgmbh\golfteamplanner\controllers;
 
 use Yii;
-use app\modules\golfteamplanner\golfteamplanner\models\Handycap;
-use app\modules\golfteamplanner\golfteamplanner\models\HandycapSearch;
+use frenzelgmbh\golfteamplanner\models\Handycap;
+use frenzelgmbh\golfteamplanner\models\HandycapSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;

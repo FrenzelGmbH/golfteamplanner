@@ -6,7 +6,7 @@ use yii\grid\GridView;
 /**
  * @var yii\web\View $this
  * @var yii\data\ActiveDataProvider $dataProvider
- * @var app\modules\golfteamplanner\golfteamplanner\models\ParticipationSearch $searchModel
+ * @var frenzelgmbh\golfteamplanner\models\ParticipationSearch $searchModel
  */
 
 $this->title = Yii::t('app', 'Participations');

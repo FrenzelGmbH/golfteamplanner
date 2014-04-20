@@ -1,14 +1,14 @@
 <?php
 
-namespace app\modules\golfteamplanner\golfteamplanner\models;
+namespace frenzelgmbh\golfteamplanner\models;
 
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\modules\golfteamplanner\golfteamplanner\models\Teamevent;
+use frenzelgmbh\golfteamplanner\models\Teamevent;
 
 /**
- * TeameventSearch represents the model behind the search form about `app\modules\golfteamplanner\golfteamplanner\models\Teamevent`.
+ * TeameventSearch represents the model behind the search form about `frenzelgmbh\golfteamplanner\models\Teamevent`.
  */
 class TeameventSearch extends Teamevent
 {

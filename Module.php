@@ -76,7 +76,8 @@ class Module extends \yii\base\Module {
         // use single quotes so nothing gets escaped
         return [
             'Handycap' => 'frenzelgmbh\golfteamplanner\models\Handycap',
-            'Tourevent' => 'frenzelgmbh\golfteamplanner\models\Tourevent'
+            'Teamevent' => 'frenzelgmbh\golfteamplanner\models\Teamevent'
+            'Participation' => 'frenzelgmbh\golfteamplanner\models\Participation'
         ];
     }
 
@@ -134,8 +135,8 @@ class Module extends \yii\base\Module {
     public function getActions() {
 
         return [
-            "Golfteamplanner" => "/{$this->id}",
-            "Admin" => "/{$this->id}/admin",
+            "golfteamplanner" => "/{$this->id}",
+            "admin" => "/{$this->id}/admin",
         ];
     }
 }
