@@ -32,7 +32,8 @@ use app\modules\workflow\models\Workflow;
             <?= $form->field($model, 'date_start')->widget(DatePicker::classname(), [
                     'options' => ['placeholder' => Yii::t('golfteamplanner','Enter start date ...')],
                     'pluginOptions' => [
-                        'autoclose'=>true
+                        'autoclose'=>true,
+                        'format' => 'yyyy-mm-dd'
                     ]
                 ]); 
             ?>
@@ -46,7 +47,8 @@ use app\modules\workflow\models\Workflow;
             <?= $form->field($model, 'date_end')->widget(DatePicker::classname(), [
                     'options' => ['placeholder' => Yii::t('golfteamplanner','Enter end date ...(optional)')],
                     'pluginOptions' => [
-                        'autoclose'=>true
+                        'autoclose'=>true,
+                        'format' => 'yyyy-mm-dd'
                     ]
                 ]); 
             ?>
