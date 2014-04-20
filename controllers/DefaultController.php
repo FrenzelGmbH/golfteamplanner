@@ -8,6 +8,10 @@ use yii\web\Response;
 use yii\filters\AccessControl;
 use yii\widgets\ActiveForm;
 
+use yii\db\Query;
+use yii\data\ArrayDataProvider;
+use yii\helpers\Json;
+
 /**
  * Default controller for User module
  */
