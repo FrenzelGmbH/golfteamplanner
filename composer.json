@@ -33,7 +33,7 @@
   },
   "autoload": {
     "psr-4": {
-      "frenzelgmbh\\teamgolfplanner\\": ""
+      "frenzelgmbh\\golfteamplanner\\": ""
     }
   }
 }
