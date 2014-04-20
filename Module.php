@@ -16,24 +16,49 @@ class Module extends BaseModule {
     /**
      * @inheritdoc
      */
-    public function __construct($id, $parent = null, $config = [])
+    public function init()
     {
-        foreach ($this->getModuleComponents() as $name => $component) {
-            if (!isset($config['components'][$name])) {
-                $config['components'][$name] = $component;
-            } elseif (is_array($config['components'][$name]) && !isset($config['components'][$name]['class'])) {
-                $config['components'][$name]['class'] = $component['class'];
-            }
-        }
-        parent::__construct($id, $parent, $config);
+        parent::init();
+        
+        \Yii::setAlias('@golfteamplanner', dirname(__FILE__));
+        /*\Yii::$app->i18n->translations['usr'] = [
+            'class' => 'yii\i18n\PhpMessageSource',
+            'sourceLanguage' => 'en-US',
+            'basePath' => '@usr/messages',
+        ];
+        if (\Yii::$app->mail !== null)
+            \Yii::$app->mail->viewPath = '@usr/views/emails';*/
     }
 
     /**
-     * Returns module components.
-     * @return array
+     * Modify createController() to handle routes in the default controller
+     *
+     * This is a temporary hack until they add in url management via modules
+     * @link https://github.com/yiisoft/yii2/issues/810
+     * @link http://www.yiiframework.com/forum/index.php/topic/21884-module-and-url-management/
+     *
+     * "usr" and "usr/default" work like normal
+     * "usr/xxx" gets changed to "usr/default/xxx"
+     *
+     * @inheritdoc
      */
-    protected function getModuleComponents()
+    public function createController($route)
     {
-        return NULL;
+        // check valid routes
+        $validRoutes = [$this->defaultRoute, "handycap","participation","teamevent"];
+        $isValidRoute = false;
+        foreach ($validRoutes as $validRoute) {
+            if (strpos($route, $validRoute) === 0) {
+                $isValidRoute = true;
+                break;
+            }
+        }
+
+        if (!empty($route) && !$isValidRoute) {
+            $route = $this->defaultRoute.'/'.$route;
+        }
+
+        return parent::createController($route);
     }
+
 }
