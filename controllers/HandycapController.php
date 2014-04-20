@@ -17,14 +17,12 @@ class HandycapController extends Controller
 
     /**
      * Get view path based on module property
-     *
      * @return string
      */
-    public function getViewPath() 
-    {
-        return Yii::$app->get("golfteamplanner")->viewPath
-            ? rtrim(Yii::$app->get("golfteamplanner")->viewPath, "/\\") . DIRECTORY_SEPARATOR . $this->id
-            : parent::getViewPath();
+    public function getViewPath() {
+      return Yii::$app->getModule("golfteamplanner")->viewPath
+        ? rtrim(Yii::$app->getModule("golfteamplanner")->viewPath, "/\\") . DIRECTORY_SEPARATOR . $this->id
+        : parent::getViewPath();
     }
 
     public function behaviors()
@@ -45,6 +43,8 @@ class HandycapController extends Controller
      */
     public function actionIndex()
     {
+        $this->layout = \Yii::$app->getModule("golfteamplanner")->mainLayout;
+
         $searchModel = new HandycapSearch;
         $dataProvider = $searchModel->search(Yii::$app->request->getQueryParams());
 
@@ -61,6 +61,8 @@ class HandycapController extends Controller
      */
     public function actionView($id)
     {
+        $this->layout = \Yii::$app->getModule("golfteamplanner")->mainLayout;
+
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
@@ -73,6 +75,8 @@ class HandycapController extends Controller
      */
     public function actionCreate()
     {
+        $this->layout = \Yii::$app->getModule("golfteamplanner")->mainLayout;
+
         $model = new Handycap;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -92,6 +96,8 @@ class HandycapController extends Controller
      */
     public function actionUpdate($id)
     {
+        $this->layout = \Yii::$app->getModule("golfteamplanner")->mainLayout;
+        
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {

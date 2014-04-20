@@ -19,6 +19,11 @@ class Module extends BaseModule {
     public $viewPath;
 
     /**
+     * @var string|null main layout that should be used
+     */
+    public $mainLayout;
+
+    /**
      * @inheritdoc
      */
     public function init()

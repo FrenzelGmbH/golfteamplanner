@@ -11,17 +11,16 @@ use yii\widgets\ActiveForm;
 /**
  * Default controller for User module
  */
-class DefaultController extends Controller {
-
+class DefaultController extends Controller 
+{ 
     /**
      * Get view path based on module property
-     *
      * @return string
      */
     public function getViewPath() {
-        return Yii::$app->get("golfteamplanner")->viewPath
-            ? rtrim(Yii::$app->get("golfteamplanner")->viewPath, "/\\") . DIRECTORY_SEPARATOR . $this->id
-            : parent::getViewPath();
+      return Yii::$app->getModule("golfteamplanner")->viewPath
+        ? rtrim(Yii::$app->getModule("golfteamplanner")->viewPath, "/\\") . DIRECTORY_SEPARATOR . $this->id
+        : parent::getViewPath();
     }
 
     /**
@@ -47,7 +46,8 @@ class DefaultController extends Controller {
      */
     public function actionIndex() 
     {
-        return $this->render('index',[]);
+      $this->layout = \Yii::$app->getModule("golfteamplanner")->mainLayout;
+      return $this->render('index',[]);
     }
 
 }
