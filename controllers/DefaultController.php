@@ -19,8 +19,8 @@ class DefaultController extends Controller {
      * @return string
      */
     public function getViewPath() {
-        return Yii::$app->getModule("user")->viewPath
-            ? rtrim(Yii::$app->getModule("user")->viewPath, "/\\") . DIRECTORY_SEPARATOR . $this->id
+        return Yii::$app->get("golfteamplanner")->viewPath
+            ? rtrim(Yii::$app->get("golfteamplanner")->viewPath, "/\\") . DIRECTORY_SEPARATOR . $this->id
             : parent::getViewPath();
     }
 
@@ -37,16 +37,6 @@ class DefaultController extends Controller {
                         'allow' => true,
                         'roles' => ['?', '@'],
                     ],
-                    [
-                        'actions' => ['handycap'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                    [
-                        'actions' => ['reset'],
-                        'allow' => true,
-                        'roles' => ['?'],
-                    ],
                 ],
             ],
         ];
@@ -55,21 +45,9 @@ class DefaultController extends Controller {
     /**
      * Display index
      */
-    public function actionIndex() {
-
-        // display debug page if YII_DEBUG is set
-        if (defined('YII_DEBUG') and YII_DEBUG) {
-            $actions = Yii::$app->getModule("user")->getActions();
-            return $this->render('index', ["actions" => $actions]);
-        }
-        // redirect to login page if user is guest
-        elseif (Yii::$app->user->isGuest) {
-            return $this->redirect(["/user/login"]);
-        }
-        // redirect to account page if user is logged in
-        else {
-            return $this->redirect(["/user/account"]);
-        }
+    public function actionIndex() 
+    {
+        return $this->render('index',[]);
     }
 
 }

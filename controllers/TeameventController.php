@@ -14,6 +14,18 @@ use yii\filters\VerbFilter;
  */
 class TeameventController extends Controller
 {
+    /**
+     * Get view path based on module property
+     *
+     * @return string
+     */
+    public function getViewPath() 
+    {
+        return Yii::$app->get("golfteamplanner")->viewPath
+            ? rtrim(Yii::$app->get("golfteamplanner")->viewPath, "/\\") . DIRECTORY_SEPARATOR . $this->id
+            : parent::getViewPath();
+    }
+
     public function behaviors()
     {
         return [
