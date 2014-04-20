@@ -14,7 +14,7 @@ $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Teamevents'), 'url' 
 $this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = Yii::t('app', 'Update');
 ?>
-<div class="teamevent-update">
+<div class="workbench">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

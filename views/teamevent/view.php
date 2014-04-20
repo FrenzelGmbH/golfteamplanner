@@ -12,7 +12,7 @@ $this->title = $model->name;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Teamevents'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="teamevent-view">
+<div class="workbench">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
