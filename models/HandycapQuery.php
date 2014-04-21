@@ -8,7 +8,7 @@ use yii\db\ActiveQuery;
  * Scope class for handycap which allows to view only none deleted records
  */
 
-class PageQuery extends ActiveQuery
+class HandycapQuery extends ActiveQuery
 {
     public function active()
     {
