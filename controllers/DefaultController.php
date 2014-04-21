@@ -6,7 +6,6 @@ use Yii;
 use yii\web\Controller;
 use yii\web\Response;
 use yii\filters\AccessControl;
-use yii\widgets\ActiveForm;
 
 use yii\db\Query;
 use yii\helpers\Json;
@@ -102,7 +101,7 @@ class DefaultController extends Controller
         {     
           if(!is_null($id))
           {
-            $clean['results'] = ['id'=> $id,'text' => Contact::findOne($id)->contactName];
+            $clean['results'] = ['id'=> $id,'text' => \Yii::$app->get('user')->className()::findOne($id)->username];
           }else
           {
             $clean['results'] = ['id'=> 0,'text' => 'None found'];
