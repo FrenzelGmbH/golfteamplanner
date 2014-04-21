@@ -69,7 +69,7 @@ class Handycap extends \yii\db\ActiveRecord
         {             
             if($insert)
             {
-                self::archiveOther($this->user_id);
+                $this->archiveOther();
                 $this->time_create=time();
             }
             return true;               
@@ -85,11 +85,11 @@ class Handycap extends \yii\db\ActiveRecord
         return $this->hasOne(\Yii::$app->get('user')->className(), array('id' => 'user_id'));
     }
 
-    private static function archiveOther($user_id = NULL)
+    private static function archiveOther()
     {
-        if(!is_null($user_id))
+        if(!is_null($this->user_id))
         {
-            Handycap::updateAll(['status'=>'archived'],'status <> "archived" AND user_id = '.$user_id);
+            Handycap::updateAll(['status'=>'archived'],'status <> "archived" AND user_id = '.$this->user_id);
         }
         return true;
     }
