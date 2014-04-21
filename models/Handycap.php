@@ -82,7 +82,7 @@ class Handycap extends \yii\db\ActiveRecord
      * @return object user
      */
     public function getUser() {
-        return $this->hasOne(\Yii::$app->get('user')->className(), array('id' => 'user_id'));
+        return $this->hasOne(\Yii::$app->user->identity->className(), array('id' => 'user_id'));
     }
 
     private static function archiveOther($user_id = NULL)
